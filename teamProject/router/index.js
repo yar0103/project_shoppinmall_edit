@@ -1,3 +1,4 @@
+require("dotenv").config();
 const router = require("express").Router();
 const passportConfig = require("../passport");
 passportConfig();
@@ -5,6 +6,7 @@ passportConfig();
 const userController = require("../controllers/userContorller");
 const productController = require("../controllers/productController");
 const cartController = require("../controllers/cartController");
+const passport = require("passport");
 
 //userController
 router.get("/user", userController.loadUser);
@@ -17,6 +19,16 @@ router.get("/logout", userController.logout);
 
 router.post("/join", userController.userCreate);
 router.post("/login", userController.userLogin);
+
+//kakao login
+router.get("/auth/kakao", passport.authenticate('kakao'));
+
+router.get("/auth/kakao/callback", passport.authenticate('kakao', {
+  failureRedirect: '/f',
+}), (req, res) => {
+  //로그인 성공시 처리 행동
+  return res.status(200).json({success:true,message:"로그인 성공"});
+});
 
 router.post("/passwordCheck/:id", userController.passwordCheck);
 router.post("/findId", userController.findId);
@@ -73,3 +85,5 @@ router.post("/paymentRequest", cartController.addPaymentRequest);
 router.post("/confirm", cartController.tossPaymentRequest);
 
 module.exports = router;
+
+

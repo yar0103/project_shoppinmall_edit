@@ -10,11 +10,11 @@ module.exports = {
       },
       userId: {
         type: Sequelize.STRING(40),
-        allowNull: false,
+        // allowNull: false,
       },
       password: {
         type: Sequelize.STRING(20),
-        allowNull: false,
+        // allowNull: false,
       },
       gender: {
         type: Sequelize.CHAR(1),
@@ -24,11 +24,11 @@ module.exports = {
       },
       userName: {
         type: Sequelize.STRING(10),
-        allowNull: false,
+        // allowNull: false,
       },
       email: {
         type: Sequelize.STRING(40),
-        allowNull: false,
+        // allowNull: false,
       },
       phoneNumber: {
         type: Sequelize.STRING(20),
@@ -50,8 +50,14 @@ module.exports = {
       profileImg: {
         type: Sequelize.TEXT,
       },
+      snsId: {
+        type: Sequelize.STRING(100),
+      },
+      provider: {
+        type: Sequelize.STRING(100),
+      },
       createdAt: {
-        allowNull: false,
+        // allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("now"),
       },

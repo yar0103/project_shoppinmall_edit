@@ -76,7 +76,7 @@ exports.userCreate = async (req, res) => {
 //로그인
 exports.userLogin = (req, res, next) => {
   passport.authenticate("local", (error, user, info) => {
-    if (error) return res.status(500).json(error);
+    if (error) return res.status(500).json(error.message);
     if (!user) return res.status(401).json(info.message);
 
     req.logIn(user, err => {

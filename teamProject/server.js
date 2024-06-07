@@ -48,7 +48,7 @@ app.listen(process.env.PORT, () => {
 app.use("/", require("./router"));
 
 // 메인화면
-app.get("/", async (req, res) => {
+app.get("/main", async (req, res) => {
   const { order, sort } = req.query;
   let limit = parseInt(req.query.limit);
   let result;

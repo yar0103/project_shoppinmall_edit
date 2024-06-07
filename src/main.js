@@ -16,7 +16,7 @@ export const Main = () => {
 
   const loadProduct = async (order, sort) => {
     const getProducts = await fetch(
-      `http://localhost:5000/?order=${order}&limit=${limit}&sort=${sort}`
+      `http://localhost:5000/main?order=${order}&limit=${limit}&sort=${sort}`
     ).then((res) => res.json());
     setProductList(getProducts);
   };

@@ -51,6 +51,12 @@ module.exports = (sequelize) => {
       profileImg: {
         type: DataTypes.TEXT,
       },
+      snsId: {
+        type: DataTypes.STRING(100),
+      },
+      provider: {
+        type: DataTypes.STRING(100),
+      },
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
